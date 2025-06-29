@@ -30,6 +30,20 @@ namespace Hilos_Grupo1
                             "1. Se ejecutan los procesos uno por uno." +
                             "2. Se ejecutan por hilos de forma consecutiva.");
         }
+        private void btnLimpiar_CLick(object sender, EventArgs e)
+        {
+            try
+            {
+                dataGridView1.Columns.Clear();
+                dataGridView2.Columns.Clear();
+                dataGridView3.Columns.Clear();
+                dataGridView4.Columns.Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al limpiar los datos: " + ex.Message);
+            }
+        }
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Close();
@@ -37,9 +51,16 @@ namespace Hilos_Grupo1
 
         private void btnExecute_Click(object sender, EventArgs e)
         {
-            ListaNumeros();
-            Factorial();
-            Potencia();
+            try
+            {
+                ListaNumeros();
+                Factorial();
+                Potencia();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al ejecutar los procesos: " + ex.Message);
+            }
         }
 
         //datagriedView
@@ -53,12 +74,15 @@ namespace Hilos_Grupo1
         {
             var impares = numbers
                 .Where(n => n % 2 != 0)
-                .Select(n => new { Factorial = CalcularFactorial((int)n) })
+                .Select(n => new
+                {
+                    Factorial = $"{(int)n}! = {CalcularFactorial((int)n)}"
+                })
                 .ToList();
 
             dataGridView2.DataSource = impares;
-            //dataGridView2.
         }
+
         private long CalcularFactorial(int n)
         {
             long resultado = 1;
@@ -68,14 +92,19 @@ namespace Hilos_Grupo1
             }
             return resultado;
         }
+
         public void Potencia()
         {
             var pares = numbers
-                   .Where(n => n % 2 == 0)
-                   .Select(n => new { Cuadrado = Math.Pow(n, 2) })
-                   .ToList();
+                .Where(n => n % 2 == 0)
+                .Select(n => new
+                {
+                    Potencia = $"{n} ^ 2 = {Math.Pow(n, 2)}"
+                })
+                .ToList();
 
             dataGridView3.DataSource = pares;
         }
+
     }
 }
