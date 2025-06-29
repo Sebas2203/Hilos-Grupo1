@@ -185,6 +185,7 @@
             this.lbResultado1.Name = "lbResultado1";
             this.lbResultado1.Size = new System.Drawing.Size(164, 260);
             this.lbResultado1.TabIndex = 9;
+            this.lbResultado1.Click += new System.EventHandler(this.lbResultado1_Click);
             // 
             // lbResultado2
             // 
