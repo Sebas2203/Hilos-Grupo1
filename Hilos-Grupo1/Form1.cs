@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -34,7 +35,14 @@ namespace Hilos_Grupo1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("FUNCIONA DE LA SIGUIENTE MANERA.");
+            MessageBox.Show("FUNCIONA DE LA SIGUIENTE MANERA." +
+                            "1. Se ejecutan los procesos uno por uno." +
+                            "2. Se ejecutan por hilos de forma consecutiva.");
+        }
+
+        private void lbResultado1_Click(object sender, EventArgs e)
+        {
+             
         }
     }
 }
