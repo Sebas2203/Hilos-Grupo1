@@ -39,21 +39,21 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnEjecutar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.TXT_BOX_PSCHILO = new System.Windows.Forms.TextBox();
-            this.TXT_BOX_PSCNUM = new System.Windows.Forms.TextBox();
             this.TXT_BOX_PSCTIPO = new System.Windows.Forms.TextBox();
+            this.TXT_BOX_PSCNUM = new System.Windows.Forms.TextBox();
+            this.TXT_BOX_PSCHILO = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // lbProcesandoNumero
@@ -69,7 +69,6 @@
             this.lbProcesandoNumero.TabIndex = 0;
             this.lbProcesandoNumero.Text = "Procesando Número:";
             this.lbProcesandoNumero.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbProcesandoNumero.Click += new System.EventHandler(this.label1_Click);
             // 
             // lbProcesandoHilo
             // 
@@ -152,7 +151,6 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Tablas de Números";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // btnSalir
             // 
@@ -178,6 +176,7 @@
             this.btnEjecutar.TabIndex = 8;
             this.btnEjecutar.Text = "Ejecutar";
             this.btnEjecutar.UseVisualStyleBackColor = false;
+            this.btnEjecutar.Click += new System.EventHandler(this.btnExecute_Click);
             // 
             // panel1
             // 
@@ -198,6 +197,33 @@
             this.panel1.Size = new System.Drawing.Size(748, 218);
             this.panel1.TabIndex = 16;
             // 
+            // TXT_BOX_PSCTIPO
+            // 
+            this.TXT_BOX_PSCTIPO.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TXT_BOX_PSCTIPO.Location = new System.Drawing.Point(570, 34);
+            this.TXT_BOX_PSCTIPO.Multiline = true;
+            this.TXT_BOX_PSCTIPO.Name = "TXT_BOX_PSCTIPO";
+            this.TXT_BOX_PSCTIPO.Size = new System.Drawing.Size(163, 39);
+            this.TXT_BOX_PSCTIPO.TabIndex = 18;
+            // 
+            // TXT_BOX_PSCNUM
+            // 
+            this.TXT_BOX_PSCNUM.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TXT_BOX_PSCNUM.Location = new System.Drawing.Point(200, 34);
+            this.TXT_BOX_PSCNUM.Multiline = true;
+            this.TXT_BOX_PSCNUM.Name = "TXT_BOX_PSCNUM";
+            this.TXT_BOX_PSCNUM.Size = new System.Drawing.Size(163, 39);
+            this.TXT_BOX_PSCNUM.TabIndex = 17;
+            // 
+            // TXT_BOX_PSCHILO
+            // 
+            this.TXT_BOX_PSCHILO.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TXT_BOX_PSCHILO.Location = new System.Drawing.Point(200, 89);
+            this.TXT_BOX_PSCHILO.Multiline = true;
+            this.TXT_BOX_PSCHILO.Name = "TXT_BOX_PSCHILO";
+            this.TXT_BOX_PSCHILO.Size = new System.Drawing.Size(163, 39);
+            this.TXT_BOX_PSCHILO.TabIndex = 16;
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.dataGridView4);
@@ -213,6 +239,38 @@
             this.panel2.Size = new System.Drawing.Size(748, 334);
             this.panel2.TabIndex = 17;
             // 
+            // dataGridView4
+            // 
+            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Location = new System.Drawing.Point(570, 15);
+            this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.Size = new System.Drawing.Size(164, 260);
+            this.dataGridView4.TabIndex = 17;
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(388, 15);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.Size = new System.Drawing.Size(164, 260);
+            this.dataGridView3.TabIndex = 16;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(200, 15);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(163, 260);
+            this.dataGridView2.TabIndex = 15;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(13, 15);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(163, 260);
+            this.dataGridView1.TabIndex = 14;
+            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.Control;
@@ -224,66 +282,7 @@
             this.button1.TabIndex = 13;
             this.button1.Text = "Ayuda";
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 15);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(163, 260);
-            this.dataGridView1.TabIndex = 14;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(200, 15);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(163, 260);
-            this.dataGridView2.TabIndex = 15;
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(388, 15);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(164, 260);
-            this.dataGridView3.TabIndex = 16;
-            // 
-            // dataGridView4
-            // 
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Location = new System.Drawing.Point(570, 15);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.Size = new System.Drawing.Size(164, 260);
-            this.dataGridView4.TabIndex = 17;
-            // 
-            // TXT_BOX_PSCHILO
-            // 
-            this.TXT_BOX_PSCHILO.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TXT_BOX_PSCHILO.Location = new System.Drawing.Point(200, 89);
-            this.TXT_BOX_PSCHILO.Multiline = true;
-            this.TXT_BOX_PSCHILO.Name = "TXT_BOX_PSCHILO";
-            this.TXT_BOX_PSCHILO.Size = new System.Drawing.Size(163, 39);
-            this.TXT_BOX_PSCHILO.TabIndex = 16;
-            // 
-            // TXT_BOX_PSCNUM
-            // 
-            this.TXT_BOX_PSCNUM.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TXT_BOX_PSCNUM.Location = new System.Drawing.Point(200, 34);
-            this.TXT_BOX_PSCNUM.Multiline = true;
-            this.TXT_BOX_PSCNUM.Name = "TXT_BOX_PSCNUM";
-            this.TXT_BOX_PSCNUM.Size = new System.Drawing.Size(163, 39);
-            this.TXT_BOX_PSCNUM.TabIndex = 17;
-            // 
-            // TXT_BOX_PSCTIPO
-            // 
-            this.TXT_BOX_PSCTIPO.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TXT_BOX_PSCTIPO.Location = new System.Drawing.Point(570, 34);
-            this.TXT_BOX_PSCTIPO.Multiline = true;
-            this.TXT_BOX_PSCTIPO.Name = "TXT_BOX_PSCTIPO";
-            this.TXT_BOX_PSCTIPO.Size = new System.Drawing.Size(163, 39);
-            this.TXT_BOX_PSCTIPO.TabIndex = 18;
+            this.button1.Click += new System.EventHandler(this.BtnAyuda_Click);
             // 
             // Proyecto_Hilos
             // 
@@ -303,10 +302,10 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
