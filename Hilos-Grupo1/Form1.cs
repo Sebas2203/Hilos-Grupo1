@@ -42,7 +42,7 @@ namespace Hilos_Grupo1
 
         private void lbResultado1_Click(object sender, EventArgs e)
         {
-             
+            void med_lista_enteros(object , EventArgs eventArgs);
         }
     }
 }

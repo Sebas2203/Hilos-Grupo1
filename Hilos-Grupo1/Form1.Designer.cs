@@ -38,18 +38,22 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnEjecutar = new System.Windows.Forms.Button();
-            this.lbResultado1 = new System.Windows.Forms.Label();
-            this.lbResultado2 = new System.Windows.Forms.Label();
-            this.lbResultado3 = new System.Windows.Forms.Label();
-            this.lbResultado4 = new System.Windows.Forms.Label();
-            this.lbResultProcesandoNum = new System.Windows.Forms.Label();
-            this.lbResProcesandoHilo = new System.Windows.Forms.Label();
-            this.lbResTipo = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.TXT_BOX_PSCHILO = new System.Windows.Forms.TextBox();
+            this.TXT_BOX_PSCNUM = new System.Windows.Forms.TextBox();
+            this.TXT_BOX_PSCTIPO = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.SuspendLayout();
             // 
             // lbProcesandoNumero
@@ -175,88 +179,13 @@
             this.btnEjecutar.Text = "Ejecutar";
             this.btnEjecutar.UseVisualStyleBackColor = false;
             // 
-            // lbResultado1
-            // 
-            this.lbResultado1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.lbResultado1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbResultado1.ForeColor = System.Drawing.SystemColors.Control;
-            this.lbResultado1.Location = new System.Drawing.Point(12, 15);
-            this.lbResultado1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbResultado1.Name = "lbResultado1";
-            this.lbResultado1.Size = new System.Drawing.Size(164, 260);
-            this.lbResultado1.TabIndex = 9;
-            this.lbResultado1.Click += new System.EventHandler(this.lbResultado1_Click);
-            // 
-            // lbResultado2
-            // 
-            this.lbResultado2.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.lbResultado2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbResultado2.ForeColor = System.Drawing.SystemColors.Control;
-            this.lbResultado2.Location = new System.Drawing.Point(199, 15);
-            this.lbResultado2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbResultado2.Name = "lbResultado2";
-            this.lbResultado2.Size = new System.Drawing.Size(164, 260);
-            this.lbResultado2.TabIndex = 10;
-            // 
-            // lbResultado3
-            // 
-            this.lbResultado3.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.lbResultado3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbResultado3.ForeColor = System.Drawing.SystemColors.Control;
-            this.lbResultado3.Location = new System.Drawing.Point(388, 15);
-            this.lbResultado3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbResultado3.Name = "lbResultado3";
-            this.lbResultado3.Size = new System.Drawing.Size(164, 260);
-            this.lbResultado3.TabIndex = 11;
-            // 
-            // lbResultado4
-            // 
-            this.lbResultado4.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.lbResultado4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbResultado4.ForeColor = System.Drawing.SystemColors.Control;
-            this.lbResultado4.Location = new System.Drawing.Point(570, 15);
-            this.lbResultado4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbResultado4.Name = "lbResultado4";
-            this.lbResultado4.Size = new System.Drawing.Size(164, 260);
-            this.lbResultado4.TabIndex = 12;
-            // 
-            // lbResultProcesandoNum
-            // 
-            this.lbResultProcesandoNum.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lbResultProcesandoNum.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbResultProcesandoNum.Location = new System.Drawing.Point(199, 34);
-            this.lbResultProcesandoNum.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbResultProcesandoNum.Name = "lbResultProcesandoNum";
-            this.lbResultProcesandoNum.Size = new System.Drawing.Size(164, 39);
-            this.lbResultProcesandoNum.TabIndex = 13;
-            // 
-            // lbResProcesandoHilo
-            // 
-            this.lbResProcesandoHilo.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lbResProcesandoHilo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbResProcesandoHilo.Location = new System.Drawing.Point(200, 89);
-            this.lbResProcesandoHilo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbResProcesandoHilo.Name = "lbResProcesandoHilo";
-            this.lbResProcesandoHilo.Size = new System.Drawing.Size(163, 39);
-            this.lbResProcesandoHilo.TabIndex = 14;
-            // 
-            // lbResTipo
-            // 
-            this.lbResTipo.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lbResTipo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbResTipo.Location = new System.Drawing.Point(570, 34);
-            this.lbResTipo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbResTipo.Name = "lbResTipo";
-            this.lbResTipo.Size = new System.Drawing.Size(164, 39);
-            this.lbResTipo.TabIndex = 15;
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Desktop;
+            this.panel1.Controls.Add(this.TXT_BOX_PSCTIPO);
+            this.panel1.Controls.Add(this.TXT_BOX_PSCNUM);
+            this.panel1.Controls.Add(this.TXT_BOX_PSCHILO);
             this.panel1.Controls.Add(this.lbTipoNumEnt);
-            this.panel1.Controls.Add(this.lbResultProcesandoNum);
-            this.panel1.Controls.Add(this.lbResProcesandoHilo);
-            this.panel1.Controls.Add(this.lbResTipo);
             this.panel1.Controls.Add(this.lbFactorialNumImpares);
             this.panel1.Controls.Add(this.lbPotenciasNumPares);
             this.panel1.Controls.Add(this.label1);
@@ -271,13 +200,13 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.dataGridView4);
+            this.panel2.Controls.Add(this.dataGridView3);
+            this.panel2.Controls.Add(this.dataGridView2);
+            this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.lbResultado2);
-            this.panel2.Controls.Add(this.lbResultado3);
             this.panel2.Controls.Add(this.btnSalir);
             this.panel2.Controls.Add(this.btnEjecutar);
-            this.panel2.Controls.Add(this.lbResultado1);
-            this.panel2.Controls.Add(this.lbResultado4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 218);
             this.panel2.Name = "panel2";
@@ -297,6 +226,65 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(13, 15);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(163, 260);
+            this.dataGridView1.TabIndex = 14;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(200, 15);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(163, 260);
+            this.dataGridView2.TabIndex = 15;
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(388, 15);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.Size = new System.Drawing.Size(164, 260);
+            this.dataGridView3.TabIndex = 16;
+            // 
+            // dataGridView4
+            // 
+            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Location = new System.Drawing.Point(570, 15);
+            this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.Size = new System.Drawing.Size(164, 260);
+            this.dataGridView4.TabIndex = 17;
+            // 
+            // TXT_BOX_PSCHILO
+            // 
+            this.TXT_BOX_PSCHILO.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TXT_BOX_PSCHILO.Location = new System.Drawing.Point(200, 89);
+            this.TXT_BOX_PSCHILO.Multiline = true;
+            this.TXT_BOX_PSCHILO.Name = "TXT_BOX_PSCHILO";
+            this.TXT_BOX_PSCHILO.Size = new System.Drawing.Size(163, 39);
+            this.TXT_BOX_PSCHILO.TabIndex = 16;
+            // 
+            // TXT_BOX_PSCNUM
+            // 
+            this.TXT_BOX_PSCNUM.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TXT_BOX_PSCNUM.Location = new System.Drawing.Point(200, 34);
+            this.TXT_BOX_PSCNUM.Multiline = true;
+            this.TXT_BOX_PSCNUM.Name = "TXT_BOX_PSCNUM";
+            this.TXT_BOX_PSCNUM.Size = new System.Drawing.Size(163, 39);
+            this.TXT_BOX_PSCNUM.TabIndex = 17;
+            // 
+            // TXT_BOX_PSCTIPO
+            // 
+            this.TXT_BOX_PSCTIPO.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TXT_BOX_PSCTIPO.Location = new System.Drawing.Point(570, 34);
+            this.TXT_BOX_PSCTIPO.Multiline = true;
+            this.TXT_BOX_PSCTIPO.Name = "TXT_BOX_PSCTIPO";
+            this.TXT_BOX_PSCTIPO.Size = new System.Drawing.Size(163, 39);
+            this.TXT_BOX_PSCTIPO.TabIndex = 18;
+            // 
             // Proyecto_Hilos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -313,7 +301,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Operaciones con Hilos";
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -329,16 +322,16 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnEjecutar;
-        private System.Windows.Forms.Label lbResultado1;
-        private System.Windows.Forms.Label lbResultado2;
-        private System.Windows.Forms.Label lbResultado3;
-        private System.Windows.Forms.Label lbResultado4;
-        private System.Windows.Forms.Label lbResultProcesandoNum;
-        private System.Windows.Forms.Label lbResProcesandoHilo;
-        private System.Windows.Forms.Label lbResTipo;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox TXT_BOX_PSCHILO;
+        private System.Windows.Forms.TextBox TXT_BOX_PSCTIPO;
+        private System.Windows.Forms.TextBox TXT_BOX_PSCNUM;
     }
 }
 
