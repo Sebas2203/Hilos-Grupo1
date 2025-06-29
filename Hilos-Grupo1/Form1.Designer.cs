@@ -43,12 +43,12 @@
             this.TXT_BOX_PSCNUM = new System.Windows.Forms.TextBox();
             this.TXT_BOX_PSCHILO = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
@@ -107,7 +107,7 @@
             this.lbTipoNumEnt.Location = new System.Drawing.Point(13, 161);
             this.lbTipoNumEnt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbTipoNumEnt.Name = "lbTipoNumEnt";
-            this.lbTipoNumEnt.Size = new System.Drawing.Size(163, 48);
+            this.lbTipoNumEnt.Size = new System.Drawing.Size(179, 48);
             this.lbTipoNumEnt.TabIndex = 3;
             this.lbTipoNumEnt.Text = "Lista de Números Enteros";
             this.lbTipoNumEnt.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -117,10 +117,10 @@
             this.lbFactorialNumImpares.BackColor = System.Drawing.Color.DarkSlateGray;
             this.lbFactorialNumImpares.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbFactorialNumImpares.ForeColor = System.Drawing.Color.White;
-            this.lbFactorialNumImpares.Location = new System.Drawing.Point(199, 161);
+            this.lbFactorialNumImpares.Location = new System.Drawing.Point(215, 160);
             this.lbFactorialNumImpares.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbFactorialNumImpares.Name = "lbFactorialNumImpares";
-            this.lbFactorialNumImpares.Size = new System.Drawing.Size(164, 48);
+            this.lbFactorialNumImpares.Size = new System.Drawing.Size(179, 48);
             this.lbFactorialNumImpares.TabIndex = 4;
             this.lbFactorialNumImpares.Text = "Factorial de Números Impares";
             this.lbFactorialNumImpares.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -131,10 +131,10 @@
             this.lbPotenciasNumPares.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lbPotenciasNumPares.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPotenciasNumPares.ForeColor = System.Drawing.Color.White;
-            this.lbPotenciasNumPares.Location = new System.Drawing.Point(388, 160);
+            this.lbPotenciasNumPares.Location = new System.Drawing.Point(414, 160);
             this.lbPotenciasNumPares.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbPotenciasNumPares.Name = "lbPotenciasNumPares";
-            this.lbPotenciasNumPares.Size = new System.Drawing.Size(164, 49);
+            this.lbPotenciasNumPares.Size = new System.Drawing.Size(179, 49);
             this.lbPotenciasNumPares.TabIndex = 5;
             this.lbPotenciasNumPares.Text = "Potencias de Números Pares";
             this.lbPotenciasNumPares.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -145,10 +145,10 @@
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label1.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(570, 160);
+            this.label1.Location = new System.Drawing.Point(612, 160);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(164, 49);
+            this.label1.Size = new System.Drawing.Size(179, 49);
             this.label1.TabIndex = 6;
             this.label1.Text = "Tablas de Números";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -157,7 +157,7 @@
             // 
             this.btnSalir.BackColor = System.Drawing.SystemColors.Control;
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.Location = new System.Drawing.Point(631, 297);
+            this.btnSalir.Location = new System.Drawing.Point(678, 297);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(113, 25);
@@ -170,7 +170,7 @@
             // 
             this.btnEjecutar.BackColor = System.Drawing.SystemColors.Control;
             this.btnEjecutar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEjecutar.Location = new System.Drawing.Point(515, 297);
+            this.btnEjecutar.Location = new System.Drawing.Point(562, 297);
             this.btnEjecutar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnEjecutar.Name = "btnEjecutar";
             this.btnEjecutar.Size = new System.Drawing.Size(108, 25);
@@ -195,7 +195,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(748, 218);
+            this.panel1.Size = new System.Drawing.Size(804, 218);
             this.panel1.TabIndex = 16;
             // 
             // TXT_BOX_PSCTIPO
@@ -236,41 +236,68 @@
             this.panel2.Controls.Add(this.btnSalir);
             this.panel2.Controls.Add(this.btnEjecutar);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Font = new System.Drawing.Font("Lucida Sans Typewriter", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.Location = new System.Drawing.Point(0, 218);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(748, 334);
+            this.panel2.Size = new System.Drawing.Size(804, 334);
             this.panel2.TabIndex = 17;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.Control;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(129, 297);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(108, 25);
+            this.button2.TabIndex = 18;
+            this.button2.Text = "Limpiar";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.btnLimpiar_CLick);
             // 
             // dataGridView4
             // 
+            this.dataGridView4.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Location = new System.Drawing.Point(570, 15);
+            this.dataGridView4.Location = new System.Drawing.Point(612, 15);
             this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.Size = new System.Drawing.Size(164, 260);
+            this.dataGridView4.Size = new System.Drawing.Size(179, 260);
             this.dataGridView4.TabIndex = 17;
             // 
             // dataGridView3
             // 
+            this.dataGridView3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView3.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(388, 15);
+            this.dataGridView3.Location = new System.Drawing.Point(414, 15);
             this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(164, 260);
+            this.dataGridView3.Size = new System.Drawing.Size(179, 260);
             this.dataGridView3.TabIndex = 16;
             // 
             // dataGridView2
             // 
+            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView2.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(200, 15);
+            this.dataGridView2.Location = new System.Drawing.Point(215, 15);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(163, 260);
+            this.dataGridView2.Size = new System.Drawing.Size(179, 260);
             this.dataGridView2.TabIndex = 15;
             // 
             // dataGridView1
             // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(13, 15);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(163, 260);
+            this.dataGridView1.Size = new System.Drawing.Size(179, 260);
             this.dataGridView1.TabIndex = 14;
             // 
             // button1
@@ -286,25 +313,12 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.BtnAyuda_Click);
             // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.SystemColors.Control;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(129, 297);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(108, 25);
-            this.button2.TabIndex = 18;
-            this.button2.Text = "Limpiar";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.btnLimpiar_CLick);
-            // 
             // Proyecto_Hilos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.ClientSize = new System.Drawing.Size(748, 552);
+            this.ClientSize = new System.Drawing.Size(804, 552);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Showcard Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
