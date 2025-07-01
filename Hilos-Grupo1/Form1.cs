@@ -58,6 +58,8 @@ namespace Hilos_Grupo1
                 MessageBox.Show("Error al limpiar los datos: " + ex.Message);
             }
         }
+
+        //boton salir 
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Close();
