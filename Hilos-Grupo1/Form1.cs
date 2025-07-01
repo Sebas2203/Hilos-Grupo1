@@ -17,6 +17,7 @@ namespace Hilos_Grupo1
 
         //array de numeros del 1 al 20
         double[] Lista_numeros = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
+
         //creacion de un temporizador e indice para generar tablas
         Timer temporizador;
         int indiceActual = 0;
@@ -71,8 +72,8 @@ namespace Hilos_Grupo1
                 temporizador.Tick += Temporizador_Tick;
                 temporizador.Start();
                 ListaNumeros();
-                Factorial();
-                Potencia();
+                Factorial(); //Impar 
+                Potencia(); //Par
             }
             catch (Exception ex)
             {
