@@ -7,6 +7,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -14,177 +15,149 @@ namespace Hilos_Grupo1
 {
     public partial class Proyecto_Hilos : Form
     {
+        double[] numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+                              11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
 
-        //array de numeros del 1 al 20
-        double[] Lista_numeros = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
+        Thread hiloPares;
+        Thread hiloImpares;
 
-        //creacion de un temporizador e indice para generar tablas
-        Timer temporizador;
-        int indiceActual = 0;
+        volatile bool paresTerminados = false;
+        volatile bool imparesTerminados = false;
 
         public Proyecto_Hilos()
         {
             InitializeComponent();
         }
 
-        //Metodos de botones
-
         private void BtnAyuda_Click(object sender, EventArgs e)
         {
-            string mensaje =
-                            "FUNCIONAMIENTO:\n\n" +
-                            "1️- Se ejecutan los procesos uno por uno.\n" +
-                            "2️- Se ejecutan por hilos de forma consecutiva.\n\n" +
-                            "Recuerde verificar cada proceso antes de continuar.";
+            MessageBox.Show("FUNCIONAMIENTO:\n" +
+                            "1. Se ejecutan dos hilos en paralelo.\n" +
+                            "2. Hilo 1 calcula potencias de pares.\n" +
+                            "3. Hilo 2 calcula factoriales de impares.\n" +
+                            "4. Muestra la tabla de multiplicar del número actual.");
+        }
 
-            MessageBox.Show(
-                mensaje,
-                "Ayuda del Sistema",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information
-            );
-        }
-        private void btnLimpiar_CLick(object sender, EventArgs e)
+        private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                dataGridView1.Columns.Clear();
-                dataGridView2.Columns.Clear();
-                dataGridView3.Columns.Clear();
-                dataGridView4.Columns.Clear();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al limpiar los datos: " + ex.Message);
-            }
+            dataGridView1.DataSource = null;
+            dataGridView2.DataSource = null;
+            dataGridView3.DataSource = null;
+            dataGridView4.DataSource = null;
         }
+
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            Close();
+            if (!paresTerminados || !imparesTerminados)
+            {
+                MessageBox.Show("Alguno de los hilos sigue en ejecución. Espere que terminen.");
+                return;
+            }
+            this.Close();
         }
 
         private void btnExecute_Click(object sender, EventArgs e)
         {
-            try
-            {   //Se hace una instancia de la función timer que permite crear pausas en la ejecución del código funciona con MS.
-                temporizador = new Timer();
-                temporizador.Interval = 1000;//tiempo que dura cada pausa
-                temporizador.Tick += Temporizador_Tick;
-                temporizador.Start();
-                ListaNumeros();
-                Factorial(); //Impar 
-                Potencia(); //Par
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al ejecutar los procesos: " + ex.Message);
-            }
-        }
+            paresTerminados = false;
+            imparesTerminados = false;
 
-        //datagriedView
+            dataGridView1.DataSource = numbers.Select(n => new { Numero = n }).ToList();
 
-        public void ListaNumeros()
-        {
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.MultiSelect = false;
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.CurrentCell = null;
-            dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            hiloPares = new Thread(Potencia);
+            hiloImpares = new Thread(Factorial);
 
-            dataGridView1.DataSource = Lista_numeros.Select(n => new { Numeros = n }).ToList();
+            hiloPares.Start();
+            hiloImpares.Start();
         }
 
         public void Factorial()
         {
-            var impares = Lista_numeros
-                .Where(n => n % 2 != 0)
-                .Select(n => new
-                { 
-                    Factorial = $"{(int)n} != {CalcularFactorial((int)n)}"
-                })
-                .ToList();
+            var impares = numbers.Where(n => n % 2 != 0).ToList();
+            var resultados = new DataTable();
+            resultados.Columns.Add("Factorial", typeof(string));
 
-            dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView2.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView2.MultiSelect = false;
-            dataGridView2.RowHeadersVisible = false;
-            dataGridView2.EnableHeadersVisualStyles = false;
-            dataGridView2.CurrentCell = null;
-            dataGridView2.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView2.DataSource = impares;
+            foreach (var n in impares)
+            {
+                long factorial = CalcularFactorial((int)n);
+                string resultado = $"{(int)n}! = {factorial}";
+                resultados.Rows.Add(resultado);
+
+                MostrarTabla(n);
+                ActualizarEstado(n, "Impar");
+                Thread.Sleep(1000);
+            }
+
+            dataGridView2.Invoke((MethodInvoker)(() =>
+            {
+                dataGridView2.DataSource = resultados;
+            }));
+
+            imparesTerminados = true;
+
+            this.Invoke((MethodInvoker)(() =>
+            {
+                MessageBox.Show("Proceso de impares terminado con éxito.");
+            }));
+        }
+
+        public void Potencia()
+        {
+            var pares = numbers.Where(n => n % 2 == 0).ToList();
+            var resultados = new DataTable();
+            resultados.Columns.Add("Potencia", typeof(string));
+
+            foreach (var n in pares)
+            {
+                double potencia = Math.Pow(n, 2);
+                string resultado = $"{n} ^ 2 = {potencia}";
+                resultados.Rows.Add(resultado);
+
+                MostrarTabla(n);
+                ActualizarEstado(n, "Par");
+                Thread.Sleep(1000);
+            }
+
+            dataGridView3.Invoke((MethodInvoker)(() =>
+            {
+                dataGridView3.DataSource = resultados;
+            }));
+
+            paresTerminados = true;
+
+            this.Invoke((MethodInvoker)(() =>
+            {
+                MessageBox.Show("Proceso de pares terminado con éxito.");
+            }));
         }
 
         private long CalcularFactorial(int n)
         {
             long resultado = 1;
             for (int i = 2; i <= n; i++)
-            {
                 resultado *= i;
-            }
             return resultado;
         }
 
-        public void Potencia()
+        private void MostrarTabla(double numero)
         {
-            var pares = Lista_numeros
-                .Where(n => n % 2 == 0)
-                .Select(n => new
-                {
-                    Potencia = $"{n} ^ 2 = {Math.Pow(n, 2)}"
-                })
-                .ToList();
-            dataGridView3.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView3.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridView3.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView3.MultiSelect = false;
-            dataGridView3.RowHeadersVisible = false;
-            dataGridView3.EnableHeadersVisualStyles = false;
-            dataGridView3.CurrentCell = null;
-            dataGridView3.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView3.DataSource = pares;
-        }
-
-        //Metodo del temporizador
-        private void Temporizador_Tick(object sender, EventArgs e)
-        {
-            if (indiceActual >= Lista_numeros.Length) //se utiliza el array como rango para el indice actual.
-            {
-                temporizador.Stop();
-                return;
-            }
-
-            Generartablas(Lista_numeros[indiceActual]);
-            indiceActual++;
-        }
-        
-        public void Generartablas(double numero)
-        {
-            DataTable dt = new DataTable();
-            dt.Columns.Add($"Tabla del {numero}", typeof(string));
-
+            var tabla = new DataTable();
+            tabla.Columns.Add($"Tabla del {numero}", typeof(string));
             for (int i = 1; i <= 10; i++)
-            {
-                DataRow fila = dt.NewRow();
-                double resultado = numero * i;
-                fila[0] = $"{numero} * {i:D2} = {resultado:000}";
-                dt.Rows.Add(fila);
-            }
+                tabla.Rows.Add($"{numero} x {i} = {numero * i}");
 
-            // Mostrar en DataGridView
-            dataGridView4.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView4.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridView4.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView4.MultiSelect = false;
-            dataGridView4.RowHeadersVisible = false;
-            dataGridView4.EnableHeadersVisualStyles = false;
-            dataGridView4.CurrentCell = null;
-            dataGridView4.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView4.DataSource = dt;
+            dataGridView4.Invoke((MethodInvoker)(() =>
+            {
+                dataGridView4.DataSource = tabla;
+            }));
         }
 
+        private void ActualizarEstado(double numero, string tipo)
+        {
+            this.Invoke((MethodInvoker)(() =>
+            {
+                this.Text = $"Procesando: {numero} - {tipo} - Hilo ID: {Thread.CurrentThread.ManagedThreadId}";
+            }));
+        }
     }
 }
+

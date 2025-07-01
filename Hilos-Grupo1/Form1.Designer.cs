@@ -260,7 +260,6 @@
             this.button2.TabIndex = 18;
             this.button2.Text = "Limpiar";
             this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.btnLimpiar_CLick);
             // 
             // dataGridView4
             // 
@@ -375,7 +374,7 @@
             // 
             // Temporizador
             // 
-            this.Temporizador.Tick += new System.EventHandler(this.Temporizador_Tick);
+            //this.Temporizador.Tick += new System.EventHandler(this.Temporizador_Tick);
             // 
             // Proyecto_Hilos
             // 
@@ -426,6 +425,7 @@
         private System.Windows.Forms.TextBox TXT_BOX_PSCNUM;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Timer Temporizador;
+        private System.Windows.Forms.TextBox TXT_BOX_PAUSA;
     }
 }
 
