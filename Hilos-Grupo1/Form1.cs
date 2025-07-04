@@ -46,6 +46,8 @@ namespace Hilos_Grupo1
             dataGridView4.DataSource = null;
         }
 
+        //boton salir 
+
         private void btnSalir_Click(object sender, EventArgs e)
         {
             if (!paresTerminados || !imparesTerminados)
