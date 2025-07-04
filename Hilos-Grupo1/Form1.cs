@@ -157,7 +157,9 @@ namespace Hilos_Grupo1
         {
             this.Invoke((MethodInvoker)(() =>
             {
-                this.Text = $"Procesando: {numero} - {tipo} - Hilo ID: {Thread.CurrentThread.ManagedThreadId}";
+                TXT_BOX_PSCNUM.Text = numero.ToString();
+                TXT_BOX_PSCTIPO.Text = tipo;
+                TXT_BOX_PSCHILO.Text = Thread.CurrentThread.ManagedThreadId.ToString();
             }));
         }
     }
