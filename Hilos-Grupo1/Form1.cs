@@ -24,6 +24,8 @@ namespace Hilos_Grupo1
         volatile bool paresTerminados = false;
         volatile bool imparesTerminados = false;
 
+        private readonly object lockUI = new object();
+
         public Proyecto_Hilos()
         {
             InitializeComponent();
@@ -74,19 +76,23 @@ namespace Hilos_Grupo1
 
         public void Factorial()
         {
-            var impares = numbers.Where(n => n % 2 != 0).ToList();
             var resultados = new DataTable();
             resultados.Columns.Add("Factorial", typeof(string));
 
-            foreach (var n in impares)
+            for (int i = 0; i < numbers.Length; i++)
             {
-                long factorial = CalcularFactorial((int)n);
-                string resultado = $"{(int)n}! = {factorial}";
-                resultados.Rows.Add(resultado);
-
-                MostrarTabla(n);
-                ActualizarEstado(n, "Impar");
+                
                 Thread.Sleep(1000);
+                double n = numbers[i];
+                if (n % 2 != 0)
+                {
+                    long factorial = CalcularFactorial((int)n);
+                    string resultado = $"{(int)n}! = {factorial}";
+                    resultados.Rows.Add(resultado);
+
+                    ActualizarEstado(n, "Impar");
+                    
+                }
             }
 
             dataGridView2.Invoke((MethodInvoker)(() =>
@@ -104,19 +110,21 @@ namespace Hilos_Grupo1
 
         public void Potencia()
         {
-            var pares = numbers.Where(n => n % 2 == 0).ToList();
             var resultados = new DataTable();
             resultados.Columns.Add("Potencia", typeof(string));
 
-            foreach (var n in pares)
+            foreach (double n in numbers)
             {
-                double potencia = Math.Pow(n, 2);
-                string resultado = $"{n} ^ 2 = {potencia}";
-                resultados.Rows.Add(resultado);
-
                 MostrarTabla(n);
-                ActualizarEstado(n, "Par");
                 Thread.Sleep(1000);
+                if (n % 2 == 0) // Si es par
+                {
+                    double potencia = Math.Pow(n, 2);
+                    string resultado = $"{n} ^ 2 = {potencia}";
+                    resultados.Rows.Add(resultado);
+
+                    ActualizarEstado(n, "Par");
+                }
             }
 
             dataGridView3.Invoke((MethodInvoker)(() =>
@@ -155,7 +163,8 @@ namespace Hilos_Grupo1
 
         private void ActualizarEstado(double numero, string tipo)
         {
-            this.Invoke((MethodInvoker)(() =>
+            lock (lockUI)
+                this.Invoke((MethodInvoker)(() =>
             {
                 TXT_BOX_PSCNUM.Text = numero.ToString();
                 TXT_BOX_PSCTIPO.Text = tipo;
