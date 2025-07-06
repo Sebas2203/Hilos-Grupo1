@@ -40,24 +40,11 @@ namespace Hilos_Grupo1
                             "4. Muestra la tabla de multiplicar del número actual.");
         }
 
-        private void btnLimpiar_Click(object sender, EventArgs e)
-        {
-            dataGridView1.DataSource = null;
-            dataGridView2.DataSource = null;
-            dataGridView3.DataSource = null;
-            dataGridView4.DataSource = null;
-        }
-
         //boton salir 
 
         private void btnSalir_Click(object sender, EventArgs e)
-        {
-            if (!paresTerminados || !imparesTerminados)
-            {
-                MessageBox.Show("Alguno de los hilos sigue en ejecución. Espere que terminen.");
-                return;
-            }
-            this.Close();
+        {   
+            Application.Exit();
         }
 
         private void btnExecute_Click(object sender, EventArgs e)
@@ -68,7 +55,9 @@ namespace Hilos_Grupo1
             dataGridView1.DataSource = numbers.Select(n => new { Numero = n }).ToList();
 
             hiloPares = new Thread(Potencia);
+            hiloPares.IsBackground = true;
             hiloImpares = new Thread(Factorial);
+            hiloImpares.IsBackground = true;
 
             hiloPares.Start();
             hiloImpares.Start();
@@ -81,7 +70,7 @@ namespace Hilos_Grupo1
 
             for (int i = 0; i < numbers.Length; i++)
             {
-                
+
                 Thread.Sleep(1000);
                 double n = numbers[i];
                 if (n % 2 != 0)
@@ -91,7 +80,7 @@ namespace Hilos_Grupo1
                     resultados.Rows.Add(resultado);
 
                     ActualizarEstado(n, "Impar");
-                    
+
                 }
             }
 
@@ -163,12 +152,14 @@ namespace Hilos_Grupo1
 
         private void ActualizarEstado(double numero, string tipo)
         {
+            int threadId = Thread.CurrentThread.ManagedThreadId;
+
             lock (lockUI)
                 this.Invoke((MethodInvoker)(() =>
             {
                 TXT_BOX_PSCNUM.Text = numero.ToString();
                 TXT_BOX_PSCTIPO.Text = tipo;
-                TXT_BOX_PSCHILO.Text = Thread.CurrentThread.ManagedThreadId.ToString();
+                TXT_BOX_PSCHILO.Text = threadId.ToString();
             }));
         }
     }
